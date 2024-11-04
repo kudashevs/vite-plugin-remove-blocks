@@ -1,3 +1,4 @@
+// @ts-check
 'use strict';
 
 import RemoveBlocks from 'remove-blocks';
