@@ -50,10 +50,14 @@ describe('default test suite', () => {
   });
 
   it('can handle an empty mode option', () => {
+    import.meta.env.MODE = '';
+
     const input = '/* devblock:start */ any /* devblock:end */';
     const expected = '';
 
     expect(plugin.transform(input)).toBe(expected);
+
+    import.meta.env.MODE = originalMode;
   });
 
   it('can handle an empty blocks options', () => {
