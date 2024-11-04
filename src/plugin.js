@@ -38,7 +38,7 @@ export default function ViteRemoveBlocks(options = {}) {
  * @throws Error
  */
 function remove(content, options = {}) {
-  if (shouldSkipProcessing(import.meta.env.MODE || process.env.NODE_ENV)) {
+  if (shouldSkipProcessing(import.meta.env?.MODE || process.env.NODE_ENV)) {
     return content;
   }
 
