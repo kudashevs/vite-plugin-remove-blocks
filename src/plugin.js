@@ -1,7 +1,7 @@
 'use strict';
 
 import RemoveBlocks from 'remove-blocks';
-import {isEmptyObject, isEmptyArray} from './utils.js';
+import {isNotSet, isEmptyArray} from './utils.js';
 
 const PLUGIN_NAME = 'vite-plugin-remove-blocks';
 
@@ -65,7 +65,7 @@ function shouldSkipProcessing(mode) {
 }
 
 function shouldUseDefaults(options) {
-  return isEmptyObject(options) || isEmptyArray(options.blocks);
+  return isNotSet(options.blocks) || isEmptyArray(options.blocks);
 }
 
 /**
