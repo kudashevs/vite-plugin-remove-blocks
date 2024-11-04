@@ -3,7 +3,6 @@
 
 /**
  * @param {Object} obj
- *
  * @returns {boolean}
  */
 function isEmptyObject(obj) {
@@ -11,8 +10,7 @@ function isEmptyObject(obj) {
 }
 
 /**
- * @param {Array} arr
- *
+ * @param {Array|undefined} arr
  * @returns {boolean}
  */
 function isEmptyArray(arr) {
@@ -21,7 +19,6 @@ function isEmptyArray(arr) {
 
 /**
  * @param {Object} obj
- *
  * @returns {boolean}
  */
 function isObject(obj) {

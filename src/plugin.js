@@ -33,7 +33,6 @@ export default function ViteRemoveBlocks(options = {}) {
  * @param {string} content
  * @param {Object} options
  * @param {Array<string|{name: string, prefix: string, suffix: string}>|undefined} [options.blocks]
- *
  * @return {string}
  *
  * @throws Error
@@ -59,7 +58,6 @@ function remove(content, options = {}) {
 
 /**
  * @param {string} mode
- *
  * @return {boolean}
  */
 function shouldSkipProcessing(mode) {
@@ -72,7 +70,6 @@ function shouldUseDefaults(options) {
 
 /**
  * @param {string} [name=DEFAULT_NAME]
- *
  * @return {Object}
  */
 function generateDefaultBlock(name = DEFAULT_NAME) {
