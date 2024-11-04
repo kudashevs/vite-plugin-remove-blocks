@@ -1,6 +1,6 @@
 'use strict';
 
-import removeBlocks from 'remove-blocks';
+import RemoveBlocks from 'remove-blocks';
 import {isEmptyObject, isEmptyArray} from './utils.js';
 
 const PLUGIN_NAME = 'vite-plugin-remove-blocks';
@@ -48,7 +48,7 @@ function remove(content, options = {}) {
   }
 
   try {
-    content = removeBlocks(content, options);
+    content = RemoveBlocks(content, options);
   } catch (e) {
     // implement Specific Error?
     throw e;
