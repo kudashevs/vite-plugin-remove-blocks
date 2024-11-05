@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@vitest/coverage-v8": "^2.1.4",
     "cross-env": "^7.0.3",
     "eslint": "^9.13.0",
     "globals": "^15.11.0",
@@ -45,7 +46,10 @@
     "vitest": "^2.1.4"
   },
   "scripts": {
-    "test": "cross-env NODE_ENV=test vitest run",
+    "test": "vitest run",
+    "test:unit": "npm run test ./test/unit/",
+    "test:spec": "npm run test ./test/acceptance/",
+    "test:coverage": "vitest run --coverage",
     "format": "prettier --write \"**/*.+(js|json)\" --"
   }
 }
