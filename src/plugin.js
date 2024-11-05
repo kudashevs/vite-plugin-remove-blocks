@@ -11,10 +11,23 @@ const DEFAULT_NAME = 'devblock';
 const TAG_PREFIX = '/*';
 const TAG_SUFFIX = '*/';
 
+/**
+ * @param {Object} options
+ * @param {boolean} [options.ignoreNodeModules]
+ * @param {Array<string|{name: string, prefix: string, suffix: string}>|undefined} [options.blocks]
+ * @return {{name: string, transform: (code: string, id: string) => (undefined|string|{code: string, map: Object})}}
+ *
+ * @throws Error
+ */
 export default function ViteRemoveBlocks(options = {}) {
   return {
     name: PLUGIN_NAME,
 
+    /**
+     * @param {string} code
+     * @param {string} id
+     * @returns {undefined|string|{code: string, map: Object}}
+     */
     transform(code, id) {
       if (options.ignoreNodeModules !== false && id.includes('/node_modules/')) {
         return;
@@ -37,6 +50,7 @@ export default function ViteRemoveBlocks(options = {}) {
 /**
  * @param {string} content
  * @param {Object} options
+ * @param {boolean} [options.ignoreNodeModules]
  * @param {Array<string|{name: string, prefix: string, suffix: string}>|undefined} [options.blocks]
  * @return {string}
  *
@@ -62,13 +76,17 @@ function shouldSkipProcessing(mode) {
   return EXCLUDE_MODES.includes(mode);
 }
 
+/**
+ * @param {Object} options
+ * @param {Array<*>|undefined} [options.blocks]
+ */
 function shouldUseDefaults(options) {
   return isNotSet(options.blocks) || isEmptyArray(options.blocks);
 }
 
 /**
  * @param {string} [name=DEFAULT_NAME]
- * @return {Object}
+ * @return {{name:string, prefix: string, suffix: string}}
  */
 function generateDefaultBlock(name = DEFAULT_NAME) {
   return {
