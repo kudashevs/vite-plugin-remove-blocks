@@ -51,14 +51,7 @@ function remove(content, options = {}) {
     options.blocks = [generateDefaultBlock()];
   }
 
-  try {
-    content = RemoveBlocks(content, options);
-  } catch (e) {
-    // implement Specific Error?
-    throw e;
-  }
-
-  return content;
+  return RemoveBlocks(content, options);
 }
 
 /**
