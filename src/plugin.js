@@ -33,14 +33,16 @@ export default function ViteRemoveBlocks(options = {}) {
         return;
       }
 
+      let modified = '';
+
       try {
-        code = remove(code, options);
+        modified = remove(code, options);
       } catch (e) {
         throw e;
       }
 
       return {
-        code: code,
+        code: modified,
         map: {mappings: ''}
       };
     },
