@@ -136,14 +136,14 @@ describe('default test suite', () => {
     expect(plugin.transform(input)).toBe(expected);
   });
 
-  it('cannot remove a code block marked in upper case with default settings', () => {
+  it('cannot remove a code block marked in upper case with default options', () => {
     const input = "visible /* DEVBLOCK:START */ won't be removed /* DEVBLOCK:END */";
     const expected = "visible /* DEVBLOCK:START */ won't be removed /* DEVBLOCK:END */";
 
     expect(plugin.transform(input)).toBe(expected);
   });
 
-  it('can remove a code block marked in upper case with provided settings', () => {
+  it('can remove a code block marked in upper case with the specific options', () => {
     const plugin = VitePlugin({
       blocks: [
         {
