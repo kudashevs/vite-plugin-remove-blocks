@@ -86,6 +86,26 @@ describe('default test suite', () => {
     expect.assertions(1);
   });
 
+  it('can ignore files from node_modules with default options', () => {
+    const path = '/node_modules/axios/index.js';
+    const input = 'visible /* devblock:start */ will be removed /* devblock:end */';
+    const expected = 'visible /* devblock:start */ will be removed /* devblock:end */';
+
+    expect(plugin.transform(input, path)).toBe(expected);
+  });
+
+  it('can process files from node_modules with the specific option', () => {
+    const plugin = VitePlugin({
+      ignoreNodeModules: false,
+    });
+
+    const path = '/node_modules/axios/index.js';
+    const input = 'visible /* devblock:start */ will be removed /* devblock:end */';
+    const expected = 'visible ';
+
+    expect(plugin.transform(input, path)).toBe(expected);
+  });
+
   it('can remove a code block marked through the colon (default label)', () => {
     const input = 'visible /* devblock:start */ will be removed /* devblock:end */';
     const expected = 'visible ';

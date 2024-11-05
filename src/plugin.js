@@ -16,6 +16,10 @@ export default function ViteRemoveBlocks(options = {}) {
     name: PLUGIN_NAME,
 
     transform(code, id) {
+      if (options.ignoreNodeModules !== false && id.includes('/node_modules/')) {
+        return;
+      }
+
       try {
         code = remove(code, options);
       } catch (e) {
