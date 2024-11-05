@@ -35,9 +35,10 @@ function makeFoo(bar, baz) {
 }
 ```
 
-The plugin removes blocks of code marked with two paired tags (a block). A block is represented by string or an object
-with a name, prefix and suffix. Let's identify two different blocks and describe them in the plugin's configuration:
+The plugin removes blocks of code marked with two paired tags (a block). A block is represented by a string or an object
+with a name, prefix and suffix. Let's identify two different blocks and describe them in the configuration:
 ```javascript
+// vite.config.js 
 import {defineConfig} from 'vite';
 import RemoveBlocks from 'vite-plugin-remove-blocks';
 
