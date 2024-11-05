@@ -5,6 +5,8 @@ export default defineConfig({
     environment: 'node',
     include: ['test/**/*.{test,spec}.js'],
     coverage: {
+      include: ['src/**/*.js'],
+      provider: 'v8',
       reporter: ['json', 'lcov', 'text', 'html'],
     }
   },
