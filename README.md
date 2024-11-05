@@ -34,11 +34,11 @@ function makeFoo(bar, baz) {
     console.log('creating Foo'); 
     
     if (bar instanceof Bar !== true) {
-        throw new Error('makeFoo: bar param is required and must be instance of Bar');
+        throw new Error('makeFoo: bar param must be an instance of Bar');
     }
     
     if (baz instanceof Baz !== true) {
-        throw new Error('makeFoo: baz param is required and must be instance of Baz');
+        throw new Error('makeFoo: baz param must be an instance of Baz');
     }
     
     return new Foo(bar, baz);
@@ -74,12 +74,12 @@ function makeFoo(bar, baz) {
     /* debug:start */ console.log('creating Foo'); /* debug:end */
     // development:start
     if (bar instanceof Bar !== true) {
-        throw new Error('makeFoo: bar param is required and must be instance of Bar');
+        throw new Error('makeFoo: bar param must be an instance of Bar');
     }
     // development:end
     // development:start
     if (baz instanceof Baz !== true) {
-        throw new Error('makeFoo: baz param is required and must be instance of Baz');
+        throw new Error('makeFoo: baz param must be an instance of Baz');
     }
     // development:end
     // This code will remain
