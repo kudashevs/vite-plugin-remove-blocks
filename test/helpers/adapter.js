@@ -12,7 +12,9 @@ export default function VitePluginAdapter(options = {}) {
   return {
     name: adaptee.name,
     transform(content, id = filePath) {
-      return adaptee.transform(content, id).code;
+      const result = adaptee.transform(content, id);
+
+      return result?.code ?? content;
     },
-  }
+  };
 }
