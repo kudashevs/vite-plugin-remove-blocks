@@ -28,7 +28,7 @@ suffix: '*/',                  # string value defines the end of a tag
 
 ## Usage example
 
-Suppose, the task is to remove some debug information and non-production code from this code sample.
+For example, suppose the task is to remove some debug information and non-production code from this code sample.
 ```javascript
 function makeFoo(bar, baz) {
     console.log('creating Foo'); 
