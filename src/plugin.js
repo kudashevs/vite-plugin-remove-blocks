@@ -2,7 +2,7 @@
 'use strict';
 
 import RemoveBlocks from 'remove-blocks';
-import {isNotSet, isEmptyArray} from './utils.js';
+import {isEmptyArray, isNotSet} from './utils.js';
 
 const PLUGIN_NAME = 'vite-plugin-remove-blocks';
 
