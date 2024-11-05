@@ -15,7 +15,7 @@ yarn add --dev vite-plugin-remove-blocks
 
 ## Options
 
-`ignoreNodeModules` a boolean defines whether to process the node_modules folder.
+`ignoreNodeModules` a boolean defines whether to process the `node_modules` folder.
 
 `blocks` an array of blocks' representations. Each element of this array describes a unique pair of tags with name,
 prefix, and suffix. These values are represented by a string or an object with the following properties:
