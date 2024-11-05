@@ -3,6 +3,16 @@ Vite Plugin Remove Blocks ![test workflow](https://github.com/kudashevs/vite-plu
 
 The `vite-plugin-remove-blocks` removes marked blocks from any type of code.
 
+## Install
+
+```bash
+# NPM
+npm install --save-dev vite-plugin-remove-blocks
+# Yarn
+yarn add --dev vite-plugin-remove-blocks
+```
+
+
 ## Options
 
 `ignoreNodeModules` an boolean defines whether to process the node_modules folder.
