@@ -11,8 +11,8 @@ describe('default test suite', () => {
   ])('can proceed in %s environment', (environment, input, expected) => {
     import.meta.env.MODE = environment;
 
-    expect(import.meta.env.MODE).toBe(environment);
-    expect(plugin.transform(input)).toBe(expected);
+    expect(import.meta.env.MODE).toStrictEqual(environment);
+    expect(plugin.transform(input)).toStrictEqual(expected);
 
     import.meta.env.MODE = originalMode;
   });
@@ -22,8 +22,8 @@ describe('default test suite', () => {
   ])('can skip in %s environment', (environment, input, expected) => {
     import.meta.env.MODE = environment;
 
-    expect(import.meta.env.MODE).toBe(environment);
-    expect(plugin.transform(input)).toBe(expected);
+    expect(import.meta.env.MODE).toStrictEqual(environment);
+    expect(plugin.transform(input)).toStrictEqual(expected);
 
     import.meta.env.MODE = originalMode;
   });
@@ -44,7 +44,7 @@ describe('default test suite', () => {
     const input = '/* dev:start */ any /* dev:end */';
     const expected = '/* dev:start */ any /* dev:end */';
 
-    expect(plugin.transform(input)).toBe(expected);
+    expect(plugin.transform(input)).toStrictEqual(expected);
 
     import.meta.env.MODE = originalMode;
   });
@@ -55,7 +55,7 @@ describe('default test suite', () => {
     const input = '/* devblock:start */ any /* devblock:end */';
     const expected = '';
 
-    expect(plugin.transform(input)).toBe(expected);
+    expect(plugin.transform(input)).toStrictEqual(expected);
 
     import.meta.env.MODE = originalMode;
   });
@@ -68,7 +68,7 @@ describe('default test suite', () => {
     const input = '/* devblock:start */ any /* devblock:end */';
     const expected = '';
 
-    expect(plugin.transform(input)).toBe(expected);
+    expect(plugin.transform(input)).toStrictEqual(expected);
   });
 
   it.each([
@@ -81,7 +81,7 @@ describe('default test suite', () => {
 
       plugin.transform(input);
     } catch (e) {
-      expect(e.message).toBe(expected);
+      expect(e.message).toStrictEqual(expected);
     }
     expect.assertions(1);
   });
@@ -91,7 +91,7 @@ describe('default test suite', () => {
     const input = 'visible /* devblock:start */ will be removed /* devblock:end */';
     const expected = 'visible /* devblock:start */ will be removed /* devblock:end */';
 
-    expect(plugin.transform(input, path)).toBe(expected);
+    expect(plugin.transform(input, path)).toStrictEqual(expected);
   });
 
   it('can process files from node_modules with the specific option', () => {
@@ -103,14 +103,14 @@ describe('default test suite', () => {
     const input = 'visible /* devblock:start */ will be removed /* devblock:end */';
     const expected = 'visible ';
 
-    expect(plugin.transform(input, path)).toBe(expected);
+    expect(plugin.transform(input, path)).toStrictEqual(expected);
   });
 
   it('can remove a code block marked through the colon (default label)', () => {
     const input = 'visible /* devblock:start */ will be removed /* devblock:end */';
     const expected = 'visible ';
 
-    expect(plugin.transform(input)).toBe(expected);
+    expect(plugin.transform(input)).toStrictEqual(expected);
   });
 
   it('can use special characters in labels', () => {
@@ -126,21 +126,21 @@ describe('default test suite', () => {
     const input = 'visible <!-- *devblock!:start --> will be removed <!-- *devblock!:end -->';
     const expected = 'visible ';
 
-    expect(plugin.transform(input)).toBe(expected);
+    expect(plugin.transform(input)).toStrictEqual(expected);
   });
 
   it('can remove a code block marked in lower case', () => {
     const input = 'visible /* devblock:start */ will be removed /* devblock:end */';
     const expected = 'visible ';
 
-    expect(plugin.transform(input)).toBe(expected);
+    expect(plugin.transform(input)).toStrictEqual(expected);
   });
 
   it('cannot remove a code block marked in upper case with default options', () => {
     const input = "visible /* DEVBLOCK:START */ won't be removed /* DEVBLOCK:END */";
     const expected = "visible /* DEVBLOCK:START */ won't be removed /* DEVBLOCK:END */";
 
-    expect(plugin.transform(input)).toBe(expected);
+    expect(plugin.transform(input)).toStrictEqual(expected);
   });
 
   it('can remove a code block marked in upper case with the specific options', () => {
@@ -157,6 +157,6 @@ describe('default test suite', () => {
     const input = 'visible /* DEVBLOCK:start */ will be removed /* DEVBLOCK:end */';
     const expected = 'visible ';
 
-    expect(plugin.transform(input)).toBe(expected);
+    expect(plugin.transform(input)).toStrictEqual(expected);
   });
 });

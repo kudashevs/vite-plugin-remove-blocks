@@ -38,6 +38,6 @@ describe('README example test suite', () => {
 
     const output = plugin.transform(input);
 
-    expect(converter(output)).toBe(converter(expected));
+    expect(converter(output)).toStrictEqual(converter(expected));
   });
 });
