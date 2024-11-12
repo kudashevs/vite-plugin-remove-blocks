@@ -37,8 +37,8 @@ export default function ViteRemoveBlocks(options = {}) {
 
       try {
         modified = remove(code, options);
-      } catch (e) {
-        throw e;
+      } catch (err) {
+        throw err;
       }
 
       return {
