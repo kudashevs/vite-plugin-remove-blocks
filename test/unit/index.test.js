@@ -28,7 +28,7 @@ describe('default test suite', () => {
     import.meta.env.MODE = originalMode;
   });
 
-  it('can skip in development from the vite mode option', () => {
+  it('can skip development environment set with a vite option', () => {
     import.meta.env.MODE = 'development';
 
     const plugin = VitePlugin({
@@ -106,14 +106,14 @@ describe('default test suite', () => {
     expect(plugin.transform(input, path)).toStrictEqual(expected);
   });
 
-  it('can remove a code block marked through the colon (default label)', () => {
+  it('can remove a code block marked with the colon (default block representation)', () => {
     const input = 'visible /* devblock:start */ will be removed /* devblock:end */';
     const expected = 'visible ';
 
     expect(plugin.transform(input)).toStrictEqual(expected);
   });
 
-  it('can use special characters in labels', () => {
+  it('can use special characters in names', () => {
     const plugin = VitePlugin({
       blocks: [
         {
