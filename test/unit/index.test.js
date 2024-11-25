@@ -123,6 +123,7 @@ describe('default test suite', () => {
         },
       ],
     });
+
     const input = 'visible <!-- *devblock!:start --> will be removed <!-- *devblock!:end -->';
     const expected = 'visible ';
 
