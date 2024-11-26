@@ -31,18 +31,8 @@ describe('default test suite', () => {
   it('can skip development environment set with a vite option', () => {
     import.meta.env.MODE = 'development';
 
-    const plugin = VitePlugin({
-      blocks: [
-        {
-          name: 'dev',
-          prefix: '/*',
-          suffix: '*/',
-        },
-      ],
-    });
-
-    const input = '/* dev:start */ any /* dev:end */';
-    const expected = '/* dev:start */ any /* dev:end */';
+    const input = '/* devblock:start */ any /* devblock:end */';
+    const expected = '/* devblock:start */ any /* devblock:end */';
 
     expect(plugin.transform(input)).toStrictEqual(expected);
 
