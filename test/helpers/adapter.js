@@ -13,6 +13,7 @@ export default function VitePluginAdapter(options = {}) {
     transform(content, id = filePath) {
       const result = adaptee.transform(content, id);
 
+      // the result.code is undefined when transformation is skipped
       return result?.code ?? content;
     },
   };
