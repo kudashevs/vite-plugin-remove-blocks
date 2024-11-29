@@ -17,7 +17,7 @@ const DEFAULT_TAG_SUFFIX = '*/';
  * @param {Array<string|{name: string, prefix: string, suffix: string}>|undefined} [options.blocks]
  * @return {{name: string, transform: (code: string, id: string) => (undefined|string|{code: string, map: Object})}}
  *
- * @throws Error
+ * @throws {Error} It throws an Error when options do not match the schema.
  */
 export default function ViteRemoveBlocks(options = {}) {
   return {
