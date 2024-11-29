@@ -8,8 +8,8 @@ const PLUGIN_NAME = 'vite-plugin-remove-blocks';
 
 const EXCLUDE_MODES = ['development'];
 const DEFAULT_NAME = 'devblock';
-const TAG_PREFIX = '/*';
-const TAG_SUFFIX = '*/';
+const DEFAULT_TAG_PREFIX = '/*';
+const DEFAULT_TAG_SUFFIX = '*/';
 
 /**
  * @param {Object} options
@@ -93,8 +93,8 @@ function shouldUseDefaults(options) {
 function generateDefaultBlock(name = DEFAULT_NAME) {
   return {
     name: `${name}`,
-    prefix: TAG_PREFIX,
-    suffix: TAG_SUFFIX,
+    prefix: DEFAULT_TAG_PREFIX,
+    suffix: DEFAULT_TAG_SUFFIX,
   };
 }
 
