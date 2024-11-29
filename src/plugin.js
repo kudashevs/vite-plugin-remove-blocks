@@ -26,7 +26,7 @@ export default function ViteRemoveBlocks(options = {}) {
     /**
      * @param {string} code
      * @param {string} id
-     * @returns {undefined|string|{code: string, map: Object}}
+     * @return {undefined|string|{code: string, map: Object}}
      */
     transform(code, id) {
       if (options.ignoreNodeModules !== false && id.includes('/node_modules/')) {
@@ -88,7 +88,7 @@ function shouldUseDefaults(options) {
 
 /**
  * @param {string} [name=DEFAULT_NAME]
- * @return {{name:string, prefix: string, suffix: string}}
+ * @return {{name: string, prefix: string, suffix: string}}
  */
 function generateDefaultBlock(name = DEFAULT_NAME) {
   return {
