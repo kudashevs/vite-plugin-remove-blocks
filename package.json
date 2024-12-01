@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@types/node": "^22.10.0",
-    "remove-blocks": "^1.0.0"
+    "remove-blocks": "^1.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
