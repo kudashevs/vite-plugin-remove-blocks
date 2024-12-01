@@ -150,4 +150,22 @@ describe('default test suite', () => {
 
     expect(plugin.transform(input)).toStrictEqual(expected);
   });
+
+  it('can replace a code block with a replacement', () => {
+    const plugin = VitePlugin({
+      blocks: [
+        {
+          name: 'devblock',
+          prefix: '<!--',
+          suffix: '-->',
+          replacement: '<!-- replaced -->',
+        },
+      ],
+    });
+
+    const input = 'visible <!-- devblock:start --> will be removed <!-- devblock:end -->';
+    const expected = 'visible <!-- replaced -->';
+
+    expect(plugin.transform(input)).toStrictEqual(expected);
+  });
 });
