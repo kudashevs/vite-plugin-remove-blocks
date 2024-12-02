@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0](https://github.com/kudashevs/vite-plugin-remove-blocks/compare/v1.0.2...v1.1.0) - 2024-12-02
+
+- Bump minimum required `remove-blocks` version
+- Add a replacement feature
+- Update README.md
+- Some improvements
+
 ## [1.0.2](https://github.com/kudashevs/vite-plugin-remove-blocks/compare/v1.0.1...v1.0.2) - 2024-11-26
 
 - Add support for Vite 6
